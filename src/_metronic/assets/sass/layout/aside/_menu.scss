@@ -7,7 +7,8 @@
   .menu {
     // Link padding x
     @include menu-link-padding-x(get($aside-config, padding-x));
-
+    // Link margin x
+    @include menu-link-margin-x(get($aside-config, margin-x));
     // Menu indention
     @include menu-link-indention(get($aside-config, menu-indention), get($aside-config, padding-x));
   }

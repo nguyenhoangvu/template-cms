@@ -94,6 +94,7 @@
       align-items: center;
       height: get($header-config, default, height, desktop);
       padding: 0 get($aside-config, padding-x);
+      margin: get($aside-config, margin-x);
     }
 
     // Aside menu

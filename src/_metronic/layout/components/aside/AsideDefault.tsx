@@ -30,8 +30,8 @@ const AsideDefault: FC = () => {
           <Link to='/dashboard'>
             <img
               alt='Logo'
-              className='h-25px logo'
-              src={toAbsoluteUrl('/media/logos/logo-1-dark.svg')}
+              className='h-35px logo'
+              src={toAbsoluteUrl('/media/logos/logo.png')}
             />
           </Link>
         )}
@@ -39,8 +39,8 @@ const AsideDefault: FC = () => {
           <Link to='/dashboard'>
             <img
               alt='Logo'
-              className='h-25px logo'
-              src={toAbsoluteUrl('/media/logos/logo-1.svg')}
+              className='h-35px logo'
+              src={toAbsoluteUrl('/media/logos/logo.png')}
             />
           </Link>
         )}
@@ -72,8 +72,7 @@ const AsideDefault: FC = () => {
       </div>
       {/* end::Aside menu */}
 
-      {/* begin::Footer */}
-      <div className='aside-footer flex-column-auto pt-5 pb-7 px-5' id='kt_aside_footer'>
+      {/* <div className='aside-footer flex-column-auto pt-5 pb-7 px-5' id='kt_aside_footer'>
         <a
           target='_blank'
           className='btn btn-custom btn-primary w-100'
@@ -88,8 +87,7 @@ const AsideDefault: FC = () => {
             <KTSVG path='/media/icons/duotune/general/gen005.svg' />
           </span>
         </a>
-      </div>
-      {/* end::Footer */}
+      </div> */}
     </div>
   )
 }

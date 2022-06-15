@@ -60,7 +60,7 @@
       null,
       null,
       null,
-      get($menu, link, self, bg-color, active)
+      $orange-49-per
     );
   }
 }
@@ -74,7 +74,7 @@
       null,
       null,
       null,
-      get($menu, link, self, bg-color, active)
+      $orange-49-per
     );
   }
 }
@@ -184,7 +184,7 @@
 
 .menu-active-bg-light-primary {
   .menu-item {
-    @include menu-link-active-state($primary, $primary, $primary, $primary, $primary-light);
+    @include menu-link-active-state($primary, $primary, $primary, $primary, $orange-49-per);
   }
 }
 
@@ -192,7 +192,7 @@
   .menu-item {
     @include menu-link-show-state($primary, $primary, $primary, $primary, $primary-light);
     @include menu-link-hover-state($primary, $primary, $primary, $primary, $primary-light);
-    @include menu-link-active-state($primary, $primary, $primary, $primary, $primary-light);
+    @include menu-link-active-state($primary, $primary, $primary, $primary, $orange-49-per);
   }
 }
 
@@ -219,7 +219,7 @@
   .menu-item {
     @include menu-link-hover-state($primary, null, null, null, null);
     @include menu-link-show-state($primary, null, null, null, null);
-    @include menu-link-active-state($primary, null, null, null, null);
+    @include menu-link-active-state($white, null, null, null, $orange-49-per);
   }
 }
 
@@ -250,7 +250,7 @@
     //$title-color, $icon-color, $bullet-color, $arrow-color, $bg-color
     @include menu-link-hover-state(null, $primary, null, null, null);
     @include menu-link-show-state(null, $primary, null, null, null);
-    @include menu-link-active-state(null, $primary, null, null, null);
+    @include menu-link-active-state(null, $white, null, null, null);
   }
 }
 
@@ -281,7 +281,7 @@
     //$title-color, $icon-color, $bullet-color, $arrow-color, $bg-color
     @include menu-link-hover-state(null, null, $primary, null, null);
     @include menu-link-show-state(null, null, $primary, null, null);
-    @include menu-link-active-state(null, null, $primary, null, null);
+    @include menu-link-active-state(null, null, $white, null, null);
   }
 }
 

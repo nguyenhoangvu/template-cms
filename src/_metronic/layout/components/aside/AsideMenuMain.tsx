@@ -5,8 +5,136 @@ import {KTSVG} from '../../../helpers'
 import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
 import {AsideMenuItem} from './AsideMenuItem'
 
+interface ARRAY_JSON_CHILD extends Array<JSON_CHILD>{}
+
+interface JSON_CHILD {
+  to: string,
+  title: string,
+  hasBullet: boolean,
+  child?: ARRAY_JSON_CHILD
+}
+
+interface ARRAY_JSON extends Array<JSON>{}
+
+interface JSON {
+  to: string,
+  icon: string,
+  title: string,
+  fontIcon: string,
+  child?: ARRAY_JSON_CHILD
+}
+
 export function AsideMenuMain() {
   const intl = useIntl()
+
+  const json = [
+    {
+      to: '/dashboard',
+      icon: '/media/icons/duotune/art/art002.svg',
+      title: 'MENU.DASHBOARD',
+      fontIcon: 'bi-app-indicator',
+    },
+    {
+      to: '/builder',
+      icon: '/media/icons/duotune/general/gen019.svg',
+      title: 'Layout Builder',
+      fontIcon: 'bi-layers',
+    },
+    {
+      to: '/crafted/pages',
+      icon: '/media/icons/duotune/general/gen022.svg',
+      title: 'Pages',
+      fontIcon: 'bi-archive',
+      child: [
+        {
+          to: '/crafted/pages/profile',
+          title: 'Profile',
+          hasBullet: true,
+          child: [
+            {
+              to: '/crafted/pages/profile/projects',
+              title: 'Projects',
+              hasBullet: true,
+            },
+            {
+              to: '/crafted/profile/documents',
+              title: 'Documents',
+              hasBullet: true,
+            },
+            {
+              to: '/crafted/profile/campaigns',
+              title: 'Campaigns',
+              hasBullet: true,
+            },
+            {
+              to: '/crafted/profile/connections',
+              title: 'Connections',
+              hasBullet: true,
+            },
+          ],
+        },
+        {
+          to: '/crafted/pages/wizards',
+          title: 'Wizards',
+          hasBullet: true,
+          child: [
+            {
+              to: '/crafted/pages/wizards/horizontal',
+              title: 'Horizontal',
+              hasBullet: true,
+            },
+            {
+              to: '/crafted/wizards/vertical',
+              title: 'Vertical',
+              hasBullet: true,
+            },
+          ],
+        },
+      ],
+    },
+  ]
+
+  const RenderMenu = (json: ARRAY_JSON) => {
+    var test = json.map((obj, index) => (
+      <React.Fragment key={index}>
+        {obj.child ? (
+          <AsideMenuItemWithSub to={obj.to} icon={obj.icon} title={obj.title} fontIcon={obj.fontIcon}>
+            {RenderSubMenu(obj.child)}
+          </AsideMenuItemWithSub>
+        ) : (
+          <AsideMenuItem to={obj.to} icon={obj.icon} title={obj.title} fontIcon={obj.fontIcon} />
+        )}
+      </React.Fragment>
+    ))
+
+    return <>{test}</>
+  }
+
+  const RenderSubMenu = (arrChild: ARRAY_JSON_CHILD) => {
+    var test = arrChild.map((obj, index) => (
+      <React.Fragment key={index}>
+        <AsideMenuItemWithSub to={obj.to} title={obj.title} hasBullet={obj.hasBullet}>
+            {obj.child != undefined && 
+              obj.child.map((childObj,childIndex) => (
+                <React.Fragment key={childIndex}>
+                  {childObj.child != undefined ? (
+                    <>
+                      {RenderSubMenu(childObj.child)}
+                    </>
+                  ) : (
+                    <AsideMenuItem to={childObj.to} title={childObj.title} hasBullet={childObj.hasBullet} />
+                  )   
+                  }
+                </React.Fragment>
+              ))
+            }
+        </AsideMenuItemWithSub>
+      </React.Fragment>
+    ))
+    return <>{test}</>
+  }
+
+  // return <>{RenderMenu(json)}</>
 
   return (
     <>

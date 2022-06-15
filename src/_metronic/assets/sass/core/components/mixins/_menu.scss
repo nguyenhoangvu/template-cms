@@ -26,6 +26,16 @@
   }
 }
 
+@mixin menu-link-margin-x($valueMargin) {
+  // Menu item
+  .menu-item {
+    .menu-link,
+    .menu-content {
+      margin: $valueMargin;
+    }
+  }
+}
+
 // Set menu link padding y
 @mixin menu-link-padding-y($value) {
   // Menu item
@@ -225,6 +235,7 @@
 
   #{$sel}.menu-link.active {
     transition: $transition-link;
+    border-radius: 5px;
 
     @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
   }
